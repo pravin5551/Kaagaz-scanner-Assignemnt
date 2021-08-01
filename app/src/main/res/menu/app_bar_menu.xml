@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/searchBar"
+        android:icon="@drawable/ic_search"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
+<!--        <item-->
+<!--            android:id="searchFile"-->
+<!--            android:icon="@drawable/ic_more_view"-->
+<!--            android:title="More Search"-->
+<!--            app:actionViewClass="android.widget.SearchView"-->
+<!--            app:showAsAction="ifRoom|collapseActionView" />-->
+</menu>
