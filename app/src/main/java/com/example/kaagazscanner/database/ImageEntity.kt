@@ -5,7 +5,7 @@ import androidx.room.*
 
 @Entity(tableName = "kaagazscanner")
 data class ImageEntity(
-    @ColumnInfo(name = "imagename") var imagename :String,
+    @ColumnInfo(name = "imagename") var image_uri :String,
     @ColumnInfo(name = "timestamp") var timestamp : String,
     @ColumnInfo(name = "album") var album:String,
 

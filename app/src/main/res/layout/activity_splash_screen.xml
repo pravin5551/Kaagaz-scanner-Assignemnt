@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/splashscreenlogo"
         android:layout_width="@dimen/_300sdp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_200sdp"
         android:src="@drawable/kaagaz_symbol"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

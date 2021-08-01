@@ -69,14 +69,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun takePhoto() {
-        //save photos here
 
         val timestamp = System.currentTimeMillis()
-
-
-
-
-
+        val imagename:String = "cameraApp- ${System.currentTimeMillis()}.jpg"
         val photoFile = File(externalMediaDirs.firstOrNull(), "cameraApp- ${System.currentTimeMillis()}.jpg")
         val output = ImageCapture.OutputFileOptions.Builder(photoFile).build()
         imageCapture?.takePicture(output, ContextCompat.getMainExecutor(this),object: ImageCapture.OnImageSavedCallback{
@@ -90,11 +85,7 @@ class MainActivity : AppCompatActivity() {
                     viewModelKaagaz.addImageDetails(imageEntity)
                 }
 
-//                if (imageEntity!=null) {
-//
-//                    Toast.makeText(this,"Image is added", Toast.LENGTH_SHORT).show()
-//                }else  Toast.makeText(this,"Failed to add Image", Toast.LENGTH_SHORT).show()
-//                Toast.makeText(applicationContext, "Image saved", Toast.LENGTH_SHORT).show()
+
             }
 
             override fun onError(exception: ImageCaptureException) {
@@ -150,17 +141,3 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-
-/*
-@TypeConverter
-    public static byte [] getStringFromBitmap(Bitmap bitmapPicture){
-        ByteArrayOutputStream byteArrayBitmapStream = new ByteArrayOutputStream();
-        bitmapPicture.compress(Bitmap.CompressFormat.JPEG,0,byteArrayBitmapStream);
-       byte[] b = byteArrayBitmapStream.toByteArray();
-       return b;
-   }
-//   @TypeConverter
-//    public static Bitmap getBitmapFromStr(byte[] arr){
-//        return BitmapFactory.decodeByteArray(arr,0,arr.length);
-//    }
- */

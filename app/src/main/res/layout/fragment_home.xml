@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/recyclerview"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     tools:context=".fragments.HomeFragment">
 
+    <EditText
+        android:id="@+id/etSearchFiles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/box_for_edit_text"
+        android:hint="@string/search_files"
+        android:padding="@dimen/_5sdp"
+        android:textColor="@color/theme_color"
 
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.recyclerview.widget.RecyclerView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/etSearchFiles"
+        android:id="@+id/recyclerview"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/background_whatsapp"
+        android:drawableTop="@drawable/ic_whatsapp"
+        android:drawablePadding="@dimen/_5sdp"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/import_from_whatsapp"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerview" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/background_share_people"
+        android:drawableTop="@drawable/ic_share_with_people"
+        android:drawablePadding="@dimen/_5sdp"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/share_app"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@id/recyclerview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

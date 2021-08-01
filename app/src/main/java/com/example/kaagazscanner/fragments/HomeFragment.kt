@@ -23,9 +23,7 @@ class HomeFragment : Fragment() {
     private lateinit var viewModelKaagaz: ViewModelKaagaz
     lateinit var imageDatabase: ImageDatabase
     lateinit var imageDao: ImageDao
-
     var imagetask = mutableListOf<ImageEntity>()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -23,7 +23,7 @@ class ImageAdapter(private val entinty: List<ImageEntity>) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         holder.timestamp.text = entinty[position].timestamp
         Glide.with(holder.image)
-            .load(entinty[position].imagename)
+            .load(entinty[position].image_uri)
             .into(holder.image)
     }
 
