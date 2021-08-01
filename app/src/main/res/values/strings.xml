@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Kaagaz Scanner</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="import_from_whatsapp">Import from Whatsapp</string>
+    <string name="share_app">Share App</string>
+    <string name="not_happy_with_us">Not happy With us?</string>
+    <string name="setting">Setting</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="our_recognitions">Our Recognitions</string>
+    <string name="support_us">Support us</string>
+    <string name="privacy">Privacy</string>
+    <string name="faq">FAQ</string>
+
+    <string name="search_files">Search Files</string>
+    <string name="add_your_folder">Add your folder</string>
+    <string name="notes">Notes</string>
+    <string name="bills">Bills</string>
+    <string name="share_files">share files</string>
+
+    <string name="register">Register</string>
+    <string name="login_small">Login</string>
+    <string name="sign_in">Sign In</string>
+    <string name="login">Login</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="home">Home</string>
+    <string name="pdf_tools">PDF Tools</string>
 </resources>
