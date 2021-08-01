@@ -11,6 +11,10 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
+
+        /*/
+        Splash screen of   sec duration
+         */
         splashscreenlogo.alpha = 0f
         splashscreenlogo.animate().setDuration(3000).alpha(1f).withEndAction{
             val i = Intent(this, HomeActivity::class.java)

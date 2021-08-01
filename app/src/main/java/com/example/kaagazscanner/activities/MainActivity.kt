@@ -44,24 +44,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Here I'm checking if user have given permission of camera or not
+
         if (ContextCompat.checkSelfPermission(this,android.Manifest.permission.CAMERA)==PERMISSION_GRANTED)
         {
+            // If permission granted then camera will start
             startCamera()
 
         }else{
+
+            // Else I'll ask user again camera permissions
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA), 0)
 
         }
 
+
+        //Here I'm clicking picture onclick of button
         captureButton.setOnClickListener {
             takePhoto()
         }
 
 
-        //ViewModel Implementation
-//        val appObject = application as KaagazApplication
-//        val repository = appObject.repository
-//        val imageViewModelFactory = ImageViewModelFactory(repository)
+
+        //Lateinit properties of database, viewmodel and Dao are declared here
 
         imageDatabase = ImageDatabase.getImageDatabase(this)
         imageDao = imageDatabase.getImageDao()
@@ -76,17 +81,40 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun takePhoto() {
 
+        /**
+         * Below code is CameraX Implementation code
+         */
+
+        /**
+         *
+         *  Here I'm taking the time of picture clicking time in timestamp variable
+         *  also taking name of picture "Kaagaz- ${System.currentTimeMillis()}.jpg" by interpolating System.currentTimeMillis() in String name
+         *
+         *  also in photoFile folder I'm saving the directory of photo to local storage
+         *
+         */
         val timestamp =  SimpleDateFormat("yyyy-MM-dd   HH:mm:ss").format(Date())
         val imagename = "Kaagaz- ${System.currentTimeMillis()}.jpg"
+
+
         val photoFile = File(externalMediaDirs.firstOrNull(), "cameraApp- ${System.currentTimeMillis()}.jpg")
         val output = ImageCapture.OutputFileOptions.Builder(photoFile).build()
         imageCapture?.takePicture(output, ContextCompat.getMainExecutor(this),object: ImageCapture.OnImageSavedCallback{
             override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
 
+                /**
+                 * Here I'm taking the uri of photo
+                 */
                 image_uri = Uri.fromFile(photoFile)
+
+                /**
+                 * After taking all the required data(name, image, time and date) I'm sending to our  "KaagazScanne.db" database and inserting them to "kaagazscanner" table
+                 */
 
                 val imageEntity = ImageEntity(image_uri.toString(),timestamp.toString(),"album2",imagename);
 
+
+                // Sening all the data to Livedata using ViewModel
                 CoroutineScope(Dispatchers.IO).launch {
                     viewModelKaagaz.addImageDetails(imageEntity)
                 }
@@ -101,16 +129,6 @@ class MainActivity : AppCompatActivity() {
          }
         )
 
-//        val imageEntity = ImageEntity(temp.toString(),timestamp.toString(),"album1");
-//
-//        CoroutineScope(Dispatchers.IO).launch {
-//            viewModelKaagaz.addImageDetails(imageEntity)
-//        }
-//
-//        if (imageEntity!=null) {
-//
-//            Toast.makeText(this,"Image is added", Toast.LENGTH_SHORT).show()
-//        }else  Toast.makeText(this,"Failed to add Image", Toast.LENGTH_SHORT).show()
 
 
     }
@@ -130,16 +148,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startCamera() {
-        //start camera stuff
+        //start camera things
 
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
+
+        //using interface to listen the action on camera
         cameraProviderFuture.addListener(Runnable {
 
         val cameraProvider = cameraProviderFuture.get()
+
+            //camera preview here
         preview=Preview.Builder().build()
         preview?.setSurfaceProvider(cameraView.createSurfaceProvider(camera?.cameraInfo))
 
         imageCapture=ImageCapture.Builder().build()
+
+            //Selecting the camera lens like which one you want to open front camera or back camera
         val cameraSelector = CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_BACK).build()
         cameraProvider.unbindAll()
         camera=cameraProvider.bindToLifecycle(this, cameraSelector, preview,imageCapture)

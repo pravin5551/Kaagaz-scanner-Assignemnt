@@ -10,6 +10,11 @@ import com.bumptech.glide.Glide
 import com.example.kaagazscanner.R
 import com.example.kaagazscanner.database.ImageEntity
 
+/**
+ * In this adapter class im binding the view to the image_layout
+ *
+ */
+
 class ImageAdapter(private val entinty: List<ImageEntity>) : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
@@ -31,6 +36,10 @@ class ImageAdapter(private val entinty: List<ImageEntity>) : RecyclerView.Adapte
     override fun getItemCount(): Int {
         return entinty.size
     }
+
+    /**
+     * This ImageViewHolder knows all the views of image_layout to inflate on screen
+     */
 
     class ImageViewHolder(val view: View): RecyclerView.ViewHolder(view) {
         var timestamp :TextView = view.findViewById(R.id.tvTimeStamp)

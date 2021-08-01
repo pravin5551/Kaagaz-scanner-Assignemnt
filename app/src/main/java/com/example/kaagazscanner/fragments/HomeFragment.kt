@@ -17,8 +17,15 @@ import com.example.kaagazscanner.database.ImageEntity
 import com.example.kaagazscanner.repository.RepositoryKagaz
 import com.example.kaagazscanner.viewmodel.ViewModelKaagaz
 import kotlinx.android.synthetic.main.fragment_home.*
-
+/**
+ * This is the landing Home Fragment
+ * Here I'm calling  recyclerview vertically using linear layout
+ */
 class HomeFragment : Fragment() {
+
+    /*
+    lateinit for future variable decleration
+    */
 
     private lateinit var viewModelKaagaz: ViewModelKaagaz
     lateinit var imageDatabase: ImageDatabase

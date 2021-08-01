@@ -5,6 +5,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.kaagazscanner.repository.RepositoryKagaz
 import com.example.kaagazscanner.viewmodel.ViewModelKaagaz
 
+/**
+ *  This ViewModelFactory class to instantiate and return the
+ *  ViewModel object that survives configuration changes.
+ */
 class ImageViewModelFactory(val repository: RepositoryKagaz):ViewModelProvider.Factory {
 
 

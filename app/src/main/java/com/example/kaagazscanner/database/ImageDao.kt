@@ -8,20 +8,21 @@ import androidx.room.Query
 @Dao
 interface ImageDao {
 
+    //Query for Inserting all the data to kaggazscanner table
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addImageData(imageEntity: ImageEntity)
 
+    //Query for getting an images list from ImageEntity class
     @Query("select * from kaagazscanner")
     fun getImageData(): LiveData<List<ImageEntity>>
 
 
-//    @Query("update moneymanager set title= :newTitle, type= :newType, `album`=:newAmount where id =:id")
-//    fun changeTask(id:Int,newTitle:String, newType:String,newAmount: String)
 
-
+    //Query to delete table
     @Delete
     fun deleteManager(imageEntity: ImageEntity)
 
+    //Query to update table
     @Update
     fun updateManager(imageEntity: ImageEntity)
 }
