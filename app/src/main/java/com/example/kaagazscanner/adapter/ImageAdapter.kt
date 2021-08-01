@@ -25,6 +25,7 @@ class ImageAdapter(private val entinty: List<ImageEntity>) : RecyclerView.Adapte
         Glide.with(holder.image)
             .load(entinty[position].image_uri)
             .into(holder.image)
+        holder.image_name.text=entinty[position].image_name
     }
 
     override fun getItemCount(): Int {
@@ -34,6 +35,6 @@ class ImageAdapter(private val entinty: List<ImageEntity>) : RecyclerView.Adapte
     class ImageViewHolder(val view: View): RecyclerView.ViewHolder(view) {
         var timestamp :TextView = view.findViewById(R.id.tvTimeStamp)
         var image:ImageView = view.findViewById(R.id.Picimage)
-
+        var image_name:TextView = view.findViewById(R.id.image_name)
     }
 }

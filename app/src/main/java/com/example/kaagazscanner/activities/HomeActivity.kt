@@ -14,6 +14,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.airbnb.lottie.LottieAnimationView
 import com.example.kaagazscanner.R
 import com.example.kaagazscanner.fragments.HomeFragment
 import com.example.kaagazscanner.fragments.PdfToolsFragment
@@ -30,6 +31,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //    private lateinit var headerView: View
     var navigationFragment: Fragment? = null
     private lateinit var button: FloatingActionButton
+    lateinit var lottie :LottieAnimationView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +39,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_home)
 
         // Add callback to handle returned image from scanner
+        lottie = findViewById(R.id.lottie)
 
         button = findViewById(R.id.fab)
         button.setOnClickListener {
@@ -73,6 +76,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     navigationFragment = PdfToolsFragment()
                 }
             }
+            lottie.pauseAnimation()
             navigationFragment?.let { loadFragment(it) }
             return@setOnNavigationItemSelectedListener true
         }
@@ -97,5 +101,15 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.closeDrawer(GravityCompat.START)
         navigationFragment?.let { loadFragment(it) }
         return true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        lottie.cancelAnimation()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        lottie.cancelAnimation()
     }
 }

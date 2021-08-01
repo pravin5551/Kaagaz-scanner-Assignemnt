@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
         imageDatabase = ImageDatabase.getImageDatabase(requireActivity())
         imageDao = imageDatabase.getImageDao()
 
-        //recyclerview object initilization
+        //recyclerview object initialization
         val imageAdapter = ImageAdapter(imagetask)
         recyclerview.layoutManager = LinearLayoutManager(requireContext())
         recyclerview.adapter = imageAdapter

@@ -39,7 +39,7 @@
               <TextView
                   android:id="@+id/image_name"
                   android:layout_width="@dimen/_150sdp"
-                  android:layout_height="@dimen/_80sdp"
+                  android:layout_height="@dimen/_70sdp"
                   android:layout_marginStart="@dimen/_10sdp"
                   android:layout_marginTop="@dimen/_20sdp"
                   android:text="@string/kaagaz_202120731_16113262"
@@ -50,7 +50,7 @@
                   android:id="@+id/ivMore"
                   android:layout_width="@dimen/_25sdp"
                   android:layout_height="25dp"
-
+                  android:layout_margin="@dimen/_5sdp"
                   android:layout_alignParentEnd="true"
                   android:src="@drawable/ic_baseline_more_vert_24"
                   />
@@ -58,10 +58,10 @@
               <TextView
                   android:id="@+id/tvTimeStamp"
                   android:layout_width="@dimen/_100sdp"
-                  android:layout_height="@dimen/_25sdp"
+                  android:layout_height="@dimen/_45sdp"
                   android:layout_below="@+id/image_name"
                   android:layout_marginStart="@dimen/_10sdp"
-                  android:layout_marginTop="@dimen/_25sdp"
+                  android:layout_marginTop="@dimen/_15sdp"
                   android:text="@string/image_time"
                   android:textColor="@color/Gray"
                   android:textSize="20sp" />

@@ -47,11 +47,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/_75sdp">
-            <ImageView
-                android:layout_width="wrap_content"
 
-                android:layout_height="wrap_content"/>
-
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="scanning.json"
+                />
         </FrameLayout>
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -82,12 +87,12 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
-
-            android:background="@drawable/ic_baseline_camera_24"
+            android:backgroundTint="@color/theme_color"
+            android:src="@drawable/ic_baseline_camera_24"
             android:layout_width="wrap_content"
+            android:background="@drawable/rect_bg"
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/ic_baseline_camera_24"
             app:layout_anchor="@id/bottomAppBar" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

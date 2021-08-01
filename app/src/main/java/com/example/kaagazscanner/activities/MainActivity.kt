@@ -1,16 +1,17 @@
 package com.example.kaagazscanner.activities
 
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker.PERMISSION_GRANTED
 import androidx.lifecycle.ViewModelProviders
-import androidx.room.TypeConverter
 import com.example.kaagazscanner.R
 import com.example.kaagazscanner.database.ImageDao
 import com.example.kaagazscanner.database.ImageDatabase
@@ -22,8 +23,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
-import java.security.Permission
-import java.util.jar.Manifest
+import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,8 +37,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModelKaagaz: ViewModelKaagaz
     lateinit var imageDatabase: ImageDatabase
     lateinit var imageDao: ImageDao
-    lateinit var temp: Uri;
+    lateinit var image_uri: Uri;
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -68,18 +73,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun takePhoto() {
 
-        val timestamp = System.currentTimeMillis()
-        val imagename:String = "cameraApp- ${System.currentTimeMillis()}.jpg"
+        val timestamp =  SimpleDateFormat("yyyy-MM-dd   HH:mm:ss").format(Date())
+        val imagename = "Kaagaz- ${System.currentTimeMillis()}.jpg"
         val photoFile = File(externalMediaDirs.firstOrNull(), "cameraApp- ${System.currentTimeMillis()}.jpg")
         val output = ImageCapture.OutputFileOptions.Builder(photoFile).build()
         imageCapture?.takePicture(output, ContextCompat.getMainExecutor(this),object: ImageCapture.OnImageSavedCallback{
             override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
 
-                temp = Uri.fromFile(photoFile)
+                image_uri = Uri.fromFile(photoFile)
 
-                val imageEntity = ImageEntity(temp.toString(),timestamp.toString(),"album2");
+                val imageEntity = ImageEntity(image_uri.toString(),timestamp.toString(),"album2",imagename);
 
                 CoroutineScope(Dispatchers.IO).launch {
                     viewModelKaagaz.addImageDetails(imageEntity)
