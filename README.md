@@ -52,8 +52,10 @@ Go to the [Google Drive](https://drive.google.com/drive/u/0/folders/1EVEa-XXtKIr
   - MVVM Architecture (View - ViewModel - Model)
   - Repository pattern
 - [Retrofit](https://square.github.io/retrofit/) - Http client.
-
+- [CameraX](https://developer.android.com/training/camerax) - CameraX.
 - [Lottie](https://airbnb.io/lottie/#/) - For lottie animation</br>
+
+
 </br>
 </br>
 
