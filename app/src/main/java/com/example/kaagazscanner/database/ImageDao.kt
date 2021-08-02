@@ -18,6 +18,11 @@ interface ImageDao {
 
 
 
+    //Query for connection between two tables
+    @Query("SELECT * FROM kaagazscanner where album =:albumId")
+    fun getImages(albumId: Long): LiveData<List<ImageEntity>>
+
+
     //Query to delete table
     @Delete
     fun deleteManager(imageEntity: ImageEntity)

@@ -114,6 +114,7 @@ class MainActivity : AppCompatActivity() {
                 val imageEntity = ImageEntity(image_uri.toString(),timestamp.toString(),"album2",imagename);
 
 
+
                 // Sening all the data to Livedata using ViewModel
                 CoroutineScope(Dispatchers.IO).launch {
                     viewModelKaagaz.addImageDetails(imageEntity)
@@ -123,13 +124,15 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onError(exception: ImageCaptureException) {
-                TODO("Not yet implemented")
+                Toast.makeText(this@MainActivity, "Error occurred", Toast.LENGTH_SHORT).show()
+
             }
 
          }
+
         )
 
-
+        Toast.makeText(this, "Picture Saved", Toast.LENGTH_LONG).show()
 
     }
 
