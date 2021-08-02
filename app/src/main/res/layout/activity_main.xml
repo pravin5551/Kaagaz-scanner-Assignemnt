@@ -4,32 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".activities.MainActivity">
 
     <androidx.camera.view.PreviewView
         android:id="@+id/cameraView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMain"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_70sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        app:layout_constraintBottom_toTopOf="@id/captureButton" />
-
-    <ImageButton
-        android:id="@+id/btnSave"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/ic_baseline_done_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/captureButton"
-        app:layout_constraintStart_toStartOf="parent" />
-
 
     <Button
         android:id="@+id/captureButton"
@@ -42,7 +22,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.958" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

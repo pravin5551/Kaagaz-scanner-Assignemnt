@@ -13,12 +13,19 @@ This is an assignment given by Saveo.
 
 <table>
   <tr>
-    <td><img src="https://github.com/pravin5551/Saveo-Assignemnt/blob/main/app/src/images/ss_one.png" width="200"/></td>
-    <td><img src="https://github.com/pravin5551/Saveo-Assignemnt/blob/main/app/src/images/ss_three-093113.png" width="200"/></td>
-     <td><img src="https://github.com/pravin5551/Saveo-Assignemnt/blob/main/app/src/images/ss_two.png" width="200"/></td>
+    <td><img src="https://github.com/pravin5551/Kaagaz-scanner-Assignemnt/blob/main/Screenshots/5.png" width="200"/></td>
+    <td><img src="https://github.com/pravin5551/Kaagaz-scanner-Assignemnt/blob/main/Screenshots/6.png" width="200"/></td>
+     <td><img src="https://github.com/pravin5551/Kaagaz-scanner-Assignemnt/blob/main/Screenshots/1.png" width="200"/></td>
+     <td><img src="https://github.com/pravin5551/Kaagaz-scanner-Assignemnt/blob/main/Screenshots/2.png" width="200"/></td>
+
   </tr>
   
+ <tr>
+    <td><img src="https://github.com/pravin5551/Kaagaz-scanner-Assignemnt/blob/main/Screenshots/4.png" width="200"/></td>
+    <td><img src="https://github.com/pravin5551/Kaagaz-scanner-Assignemnt/blob/main/Screenshots/6.png" width="200"/></td>
+     <td><img src="https://github.com/pravin5551/Kaagaz-scanner-Assignemnt/blob/main/Screenshots/3.png" width="200"/></td>
 
+  </tr>
 
   
  </table>
